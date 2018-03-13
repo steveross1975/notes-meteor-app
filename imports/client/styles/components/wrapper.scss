@@ -1,0 +1,5 @@
+.wrapper {
+  margin: 0 auto; /*Top and Bottom Margin = 0, left and right margins = auto (centered text)*/
+  max-width: $site-max-width;
+  padding: $space;
+}
