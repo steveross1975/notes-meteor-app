@@ -68,7 +68,7 @@ if (Meteor.isServer) {
 
       const note = Notes.findOne(noteOne._id);
       expect(note.updatedAt).toBeGreaterThan(noteOne.updatedAt);
-      expect(note).toMatchObject({
+      expect(note).toInclude({
         title,
         body: noteOne.body
       });
@@ -93,7 +93,7 @@ if (Meteor.isServer) {
       ]);
 
       const note = Notes.findOne(noteOne._id);
-      expect(note).toMatchObject(noteOne);
+      expect(note).toInclude(noteOne);
     });
 
     it('should not update note if not authenticated', function () {
