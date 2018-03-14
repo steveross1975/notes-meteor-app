@@ -1,9 +1,9 @@
 {
-  "name": "short-lnk",
+  "name": "notes",
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "test": "meteor test --driver-package=cultofcoders:mocha --port 4200"
+    "test": "meteor test --driver-package=cultofcoders:mocha"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.36",
@@ -17,5 +17,11 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "simpl-schema": "^1.4.2"
+  },
+  "engines": {
+    "node": "8.9.4"
+  },
+  "devDependencies": {
+    "expect": "^22.4.0"
   }
 }
