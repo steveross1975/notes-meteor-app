@@ -4,7 +4,7 @@ import expect from 'expect';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import PrivateHeader from './PrivateHeader';
+import { PrivateHeader } from './PrivateHeader';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -21,12 +21,6 @@ if (Meteor.isClient) {
       const wrapper = mount( <PrivateHeader title={title} handleLogout={() => {}}/> );
       const titleFromPH = wrapper.find('h1').text();
       expect(titleFromPH).toBe(title);
-    });
-    it('should call the function', function() {
-      const spy = expect.createSpy();
-      spy(4, 6, 5);
-      spy('Lippo');
-      expect(spy).toHaveBeenCalledWith('Lippo');
     });
     it('should call handleLogout on click', function () {
       const title = 'Pick your title';
