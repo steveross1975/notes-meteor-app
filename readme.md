@@ -1,3 +1,3 @@
-Short Lnk
+Notes
 
-Meteor + React webapp that shortens web links.
+PAY ATTENTION TO THE TEST FILES!
