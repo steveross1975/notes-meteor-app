@@ -6,26 +6,21 @@ import PropTypes from 'prop-types';
 import { Notes } from '../api/notes';
 import NoteListHeader from './NoteListHeader';
 import NoteListItem from './NoteListItem';
+import NoteListEmptyItem from './NoteListEmptyItem';
+
 
 export const NoteList = (props) => {
-  const renderNoteListitem = props.notes.map((note) => {
-    if(props.notes.length === 0) {
-      return (
-        <div className="item">
-          <p className="item__status-message">No Note Found</p>
-        </div>
-      );
-    } else {
-      return (
-        <NoteListItem key={note._id} note={note}/>
-      );
-    }
+  const renderNoteListItem = props.notes.map((note) => {
+    return (
+      <NoteListItem key={note._id} note={note}/>
+    );
   });
 
   return (
     <div>
       <NoteListHeader/>
-      {renderNoteListitem}
+      {props.notes.length === 0 ? <NoteListEmptyItem/> : undefined}
+      {renderNoteListItem}
       NoteList: {props.notes.length};
     </div>
   );

@@ -54,6 +54,9 @@ export const routes = (
         <Route path="/dashboard"  render={() => {
           return onEnterPrivatePage() ? <Redirect to="/" /> : <Dashboard />
         }}/>
+        <Route path="/dashboard/:id"  render={() => {
+          return onEnterPrivatePage() ? <Redirect to="/" /> : <Dashboard />
+        }}/>
         <Route path="*" component={NotFound}/>
       </Switch>
     </div>
