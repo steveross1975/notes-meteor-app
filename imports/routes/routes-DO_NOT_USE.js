@@ -29,6 +29,13 @@ function onEnterPrivatePage() {
     return false;
   }
 }
+function onEnterNotePage(nextState) {
+  if(!Meteor.userId()) {
+    return true;
+  } else {
+    console.log(nextState);
+  }
+}
 
 export const onAuthChange = (isAuthenticated) => {
   const pathname = history.location.pathname;
@@ -55,7 +62,7 @@ export const routes = (
           return onEnterPrivatePage() ? <Redirect to="/" /> : <Dashboard />
         }}/>
         <Route path="/dashboard/:id"  render={() => {
-          return onEnterPrivatePage() ? <Redirect to="/" /> : <Dashboard />
+          return onEnterNotePage() ? <Redirect to="/" /> : <Dashboard />
         }}/>
         <Route path="*" component={NotFound}/>
       </Switch>
