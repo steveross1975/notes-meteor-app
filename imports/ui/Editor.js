@@ -4,8 +4,6 @@ import { Session } from 'meteor/session';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-
-import history from '../history';
 import { Notes } from '../api/notes';
 
 export class Editor extends React.Component {
@@ -15,6 +13,14 @@ export class Editor extends React.Component {
       title: '',
       body: ''
     };
+
+    //Lines of code needed for test purpose in order to fed up the react router with the correct type of history: MemoryHistory (not BrowserHistory)
+    if (process.env.NODE_ENV==='test') {
+      import testHistory from '../testHistory';
+      const history = testHistory;
+    } else {
+      import history from '../history';
+    }
   }
   handleTitleChange(e) {
     const title = e.target.value;
