@@ -19,7 +19,6 @@ export class Editor extends React.Component {
       const history = testHistory;
     } else if (process.env.NODE_ENV!=='test') {
       import history from '../history';
-      console.log(history);
     }
   }
   handleTitleChange(e) {
@@ -37,10 +36,7 @@ export class Editor extends React.Component {
     if (process.env.NODE_ENV==='test') {
       this.props.history.push('/dashboard');
     } else {
-      //YOUR CODE Here
-      console.log(history);
       const protoHistory = history.__proto__;
-      console.log(protoHistory);
       protoHistory.pushState.call(history, null, null, '/dashboard');
       Session.set('selectedNoteId', '');
     }
