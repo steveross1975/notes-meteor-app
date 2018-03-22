@@ -13,13 +13,13 @@ export class Editor extends React.Component {
       title: '',
       body: ''
     };
-
     //Lines of code needed for test purpose in order to fed up the react router with the correct type of history: MemoryHistory (not BrowserHistory)
     if (process.env.NODE_ENV==='test') {
       import testHistory from '../testHistory';
       const history = testHistory;
-    } else {
+    } else if (process.env.NODE_ENV!=='test') {
       import history from '../history';
+      console.log(history);
     }
   }
   handleTitleChange(e) {
@@ -34,7 +34,16 @@ export class Editor extends React.Component {
   }
   handleRemoval() {
     this.props.call('notes.remove', this.props.note._id);
-    this.props.history.push('/dashboard');
+    if (process.env.NODE_ENV==='test') {
+      this.props.history.push('/dashboard');
+    } else {
+      //YOUR CODE Here
+      console.log(history);
+      const protoHistory = history.__proto__;
+      console.log(protoHistory);
+      protoHistory.pushState.call(history, null, null, '/dashboard');
+      Session.set('selectedNoteId', '');
+    }
   }
   componentDidUpdate(prevProps, prevState) {
     const currentNoteId = this.props.note ? this.props.note._id : undefined;
