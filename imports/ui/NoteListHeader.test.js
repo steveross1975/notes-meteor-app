@@ -30,10 +30,22 @@ if (Meteor.isClient) {
          </MemoryRouter>
       );
       wrapper.find('button').simulate('click');
-      expect(meteorCall.calls[0].arguments[0]).toEqual('notes.insert');
-      // expect(meteorCall.calls[0].arguments[1]).toEqual('notes.insert');
-      //expect(spy).toHaveBeenCalledWith('notes.insert');
-
+      meteorCall.calls[0].arguments[1](undefined, notes[0]._id);
+      expect(meteorCall.calls[0].arguments[0]).toBe('notes.insert');
+      expect(Session.set).toHaveBeenCalledWith('selectedNoteId', notes[0]._id);
+    });
+    it('should call not Set Session for failed insert', function () {
+      // Here's how you mount the component:
+      const error = 'Generic Error';
+      const wrapper = mount(
+         <MemoryRouter initialEntries={['/']} initialIndex={0}>
+             <NoteListHeader meteorCall={meteorCall} Session={Session}/>
+         </MemoryRouter>
+      );
+      wrapper.find('button').simulate('click');
+      meteorCall.calls[0].arguments[1](error, undefined);
+      expect(meteorCall.calls[0].arguments[0]).toBe('notes.insert');
+      expect(Session.set).toNotHaveBeenCalled();
     });
   });
 }
