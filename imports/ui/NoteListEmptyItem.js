@@ -5,9 +5,7 @@ import React from 'react';
 
 const NoteListEmptyItem = () => {
   return(
-    <div>
-      <h5>You have no notes</h5>
-    </div>
+      <p className="empty-item">Create a note to get started</p>
   ); //the handleLogout function here is used ONLY FOR TEST PURPOSES. In development and production environments, the call in the container component below will be used (export default withTracker call)
 }
 //
