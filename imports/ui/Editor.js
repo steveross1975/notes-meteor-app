@@ -57,7 +57,7 @@ export class Editor extends React.Component {
     if (this.props.note) {
     //1 - We get a Note
       return (
-        <div>
+        <div className="editor">
           <input value={this.state.title} placeholder="Your title Here" onChange={this.handleTitleChange.bind(this)}/>
           <textarea value={this.state.body} placeholder="Your Note Here" onChange={this.handleBodyChange.bind(this)}></textarea>
           <button onClick={this.handleRemoval.bind(this)}>Delete Note</button>
@@ -66,9 +66,11 @@ export class Editor extends React.Component {
     } else {
     //3 - We get nothing: a dummy text is rendered instead
       return (
-        <p>
-          {this.props.selectedNoteId ? '404 - Note Not Found' : 'Pick or create a note to get started'}
-        </p>
+        <div className="editor">
+          <p>
+            {this.props.selectedNoteId ? '404 - Note Not Found' : 'Pick or create a note to get started'}
+          </p>
+      </div>
       );
     }
   }

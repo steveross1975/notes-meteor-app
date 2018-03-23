@@ -1,6 +1,5 @@
 .boxed-view {
   align-items: center;
-  background: $boxed-view-overlay-bg;
   display: flex;
   justify-content: center;
   height: 100vh; //vh are viewport height units (viewport is the varibale in head of the html document used to fit the page whatever screen size is diplayed in)
@@ -18,6 +17,7 @@
 
 .boxed-view__box {
   background-color: $boxed-view-bg;
+  border: 1px solid $boxed-view-border-color;
   padding: 2.4rem;
   text-align: center;
   width: 24rem;
