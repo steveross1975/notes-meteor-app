@@ -1,18 +1,29 @@
+//Mobile first approach: the standard styles are for mobile screens, the @media ones will be for desktop PCs
+
 .wrapper {
   display: flex;
   height: $wrapper-height;
   margin: 0 auto; /*Top and Bottom Margin = 0, left and right margins = auto (centered text)*/
   max-width: $site-max-width;
-  padding: $large-space $space;
+  @include desktop {
+    padding: $large-space $space;
+  }
 }
 
 .wrapper__sidebar {
-  display: flex;
+  //display: flex;
+  display: none;
   padding-right: $large-space;
   width: $wrapper-sidebar-width;
+  @include desktop  {
+    display: flex;
+  }
 }
 
 .wrapper__main {
-  width: $wrapper-main-width;
   display: flex;
+  width: 100%;
+  @include desktop {
+    width: $wrapper-main-width;
+  }
 }
