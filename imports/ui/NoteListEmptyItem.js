@@ -7,7 +7,6 @@ const NoteListEmptyItem = () => {
   return(
     <div>
       <h5>You have no notes</h5>
-      <p>Create a note to get started</p>
     </div>
   ); //the handleLogout function here is used ONLY FOR TEST PURPOSES. In development and production environments, the call in the container component below will be used (export default withTracker call)
 }
