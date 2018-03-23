@@ -15,7 +15,7 @@ export default class Dashboard extends React.Component {
   render(props) {
     return (
       <div>
-        <PrivateHeader title="Notes App" />
+        <PrivateHeader title="Notablee" />
         <div className="wrapper">
           <div className="wrapper__sidebar">
             <NoteList/>
