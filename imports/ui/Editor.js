@@ -58,16 +58,18 @@ export class Editor extends React.Component {
     //1 - We get a Note
       return (
         <div className="editor">
-          <input value={this.state.title} placeholder="Your title Here" onChange={this.handleTitleChange.bind(this)}/>
-          <textarea value={this.state.body} placeholder="Your Note Here" onChange={this.handleBodyChange.bind(this)}></textarea>
-          <button onClick={this.handleRemoval.bind(this)}>Delete Note</button>
+          <input className="editor__title" value={this.state.title} placeholder="Your title Here" onChange={this.handleTitleChange.bind(this)}/>
+          <textarea className="editor__body" value={this.state.body} placeholder="Your Note Here" onChange={this.handleBodyChange.bind(this)}></textarea>
+          <div>
+            <button className="button button--secondary" onClick={this.handleRemoval.bind(this)}>Delete Note</button>
+          </div>
         </div>
       );
     } else {
     //3 - We get nothing: a dummy text is rendered instead
       return (
         <div className="editor">
-          <p>
+          <p className="editor__message">
             {this.props.selectedNoteId ? '404 - Note Not Found' : 'Pick or create a note to get started'}
           </p>
       </div>
