@@ -36,7 +36,7 @@ export class NoteList extends React.Component {
     return (
       <div className="item-list">
         <NoteListHeader/>
-        <input type="search" placeholder="search in notes" onChange={this.setSearchTitle.bind(this)}/>
+        <input className="item-list__search" type="search" placeholder="search in notes" onChange={this.setSearchTitle.bind(this)}/>
         {this.props.notes.length === 0 ? <NoteListEmptyItem/> : undefined}
         {Session.get('searchTitle') !== '' ? this.props.filteredNotes.map((note) => <NoteListItem key={note._id} note={note}/>) : this.props.notes.map((note) => <NoteListItem key={note._id} note={note}/>)}
       </div>

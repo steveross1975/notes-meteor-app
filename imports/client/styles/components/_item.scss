@@ -7,6 +7,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.item-list__search {
+  border: none;
+  background-color: $light-grey;
+  font-size: $base-font-size;
+  font-family: $body-default-font-family;
+  margin-bottom: $space;
+  padding: $input-spacing;
+  width: 100%;
+}
+
 .item-list__header {
   display: flex;
   flex-direction: column;
