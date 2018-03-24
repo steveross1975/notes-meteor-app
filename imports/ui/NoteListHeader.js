@@ -18,7 +18,7 @@ export const NoteListHeader = (props) => {
         });
       }}>Add a Note</button>
     </div>
-  )
+  );
 }
 
 NoteListHeader.propTypes = {
